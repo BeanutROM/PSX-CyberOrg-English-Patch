@@ -1,0 +1,79 @@
+name: Bug report
+description: Report a problem with the translation, or other issues.
+title: "[Bug]: "
+body:
+  - type: input
+    id: patch-version
+    attributes:
+      label: Patch version
+      description: Enter the version of the patch
+      placeholder: "e.g. v1.2, Beta v0.9"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem description
+      description: Describe what is wrong, and if applicable - what you expected to happen.
+      placeholder: Describe the issue, including any relevant dialogue, scene, character, or menu.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      description: Where are you running the game?
+      options:
+        - Duckstation
+        - MiSTer FPGA PSX core
+        - Original PSX hardware
+    validations:
+      required: true
+
+  - type: input
+    id: emulator-version
+    attributes:
+      label: Emulator version or MiSTer PSX core date
+      description: >-
+        Please provide the Duckstation version, or the MiSTer FPGA PSX core
+        build date (vYYMMDD from about screen).
+        Do not report issues with emulators other than Duckstation. Use Duckstation.
+        Do not report issues with an unofficial PSP eboot, or running on PS2/PS3 hardware.
+        Leave blank when using Original Hardware.
+      placeholder: "e.g. DuckStation x.x-xxxx, MiSTer PSX v20261108"
+    validations:
+      required: false
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce (if applicable)
+      description: Describe how to reach the issue if you can reproduce it.
+      placeholder: |
+        1. Load the attached save or savestate.
+        2. ...
+        3. Observe the issue.
+    validations:
+      required: false
+
+  - type: upload
+    id: screenshot
+    attributes:
+      label: Screenshot (required if there is a visual of the issue)
+      description: Upload at least one screenshot showing the problem.
+    validations:
+      required: false
+      accept: ".png,.jpg,.jpeg,.webp,.gif"
+
+  - type: upload
+    id: save-file
+    attributes:
+      label: Savestate or save game (required in cases outside of translation issues)
+      description: >-
+        Upload a ZIP containing a savestate or save game that helps reproduce the issue.
+        Do not upload game ROMs, disc images, or personal files.
+    validations:
+      required: false
+      accept: ".zip"
